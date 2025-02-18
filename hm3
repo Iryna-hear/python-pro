@@ -1,0 +1,39 @@
+import random
+
+class Car:
+    def __init__(self, model, color):
+        self.fuel = random.randrange(0, 9)
+        self.trip_distance = 0
+        self.model = model
+        self.color = color
+
+
+    def move(self, distance):
+       if self.fuel > 0:
+           distance = min(distance, self.fuel)
+           self.trip_distance += distance
+           self.fuel -= distance
+           print(f"{self.model} {self.color} raced {car.trip_distance}.Petrol {car.fuel}")
+
+car1 = Car("Audi", "Black")
+car2 = Car("BMW", "White")
+car3 = Car("Merсedes", "Red")
+
+
+
+desired_dist = 15
+race_dist = 0
+while race_dist < desired_dist:
+    for car in car1, car2, car3:
+        race_dist = max(race_dist, car.trip_distance)
+        distance = random.randrange(0, 9)
+        car.move(distance)
+        if car.trip_distance >= desired_dist:
+            print (f"{car.model} {car.color} wins this race. Distance done {car.trip_distance}.")
+
+        break
+    break
+
+print("Finally result")
+for car in car1, car2, car3:
+    print(f"{car.model} {car.color} drove {car.trip_distance}, fuel {car.fuel}")
